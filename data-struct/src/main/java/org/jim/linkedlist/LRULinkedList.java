@@ -1,15 +1,12 @@
 package org.jim.linkedlist;
 
 
-import java.util.Scanner;
 
 /**
- * 基于单链表LRU算法（java）
+ * 基于单链表LRU算法
  *
- * @author hoda
- * @create 2018-12-17
  */
-public class LRUBaseLinkedList<T> {
+public class LRULinkedList<T> {
 
     /**
      * 默认链表容量
@@ -31,13 +28,13 @@ public class LRUBaseLinkedList<T> {
      */
     private Integer capacity;
 
-    public LRUBaseLinkedList() {
+    public LRULinkedList() {
         this.headNode = new SNode<>();
         this.capacity = DEFAULT_CAPACITY;
         this.length = 0;
     }
 
-    public LRUBaseLinkedList(Integer capacity) {
+    public LRULinkedList(Integer capacity) {
         this.headNode = new SNode<>();
         this.capacity = capacity;
         this.length = 0;
@@ -49,13 +46,13 @@ public class LRUBaseLinkedList<T> {
         // 链表中存在，删除原数据，再插入到链表的头部
         if (preNode != null) {
             deleteElemOptim(preNode);
-            intsertElemAtBegin(data);
+            insertElemAtBegin(data);
         } else {
             if (length >= this.capacity) {
                 //删除尾结点
                 deleteElemAtEnd();
             }
-            intsertElemAtBegin(data);
+            insertElemAtBegin(data);
         }
     }
 
@@ -76,7 +73,7 @@ public class LRUBaseLinkedList<T> {
      *
      * @param data
      */
-    private void intsertElemAtBegin(T data) {
+    private void insertElemAtBegin(T data) {
         SNode next = headNode.getNext();
         headNode.setNext(new SNode(data, next));
         length++;
@@ -165,12 +162,5 @@ public class LRUBaseLinkedList<T> {
         }
     }
 
-    public static void main(String[] args) {
-        LRUBaseLinkedList list = new LRUBaseLinkedList();
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            list.add(sc.nextInt());
-            list.printAll();
-        }
-    }
+
 }

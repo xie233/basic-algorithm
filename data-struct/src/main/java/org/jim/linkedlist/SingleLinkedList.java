@@ -1,4 +1,4 @@
-package linked.singlelist;
+package org.jim.linkedlist;
 
 /**
  * 1）单链表的插入、删除、查找操作；

@@ -1,4 +1,4 @@
-package linked.singlelist;
+package org.jim.linkedlist;
 
 
 import java.util.Scanner;
